@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class PlyerController : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
+   public GameObject player;
+    private Vector3 offset = new Vector3(0, 5, -7);
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -9,12 +12,8 @@ public class PlyerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    
-    public float speed = 20;
-
-    void Update()
+    void LateUpdate()
     {
-       // Move the Vehicle forward 
-       transform.Translate(Vector3.forward * Time.deltaTime * speed);
+       transform.position = player.transform.position + offset; 
     }
 }
